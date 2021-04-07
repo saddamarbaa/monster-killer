@@ -1,11 +1,21 @@
 /** @format */
 
+/***** CSS variables ********/
+
+:root {
+	--main-color: #ff0062;
+	--secondary-color: #a927f5;
+	--white: #ffffff;
+}
+
 html {
 	font-family: sans-serif;
 }
 
 body {
-	background: #2c2c2c;
+	margin: 0;
+	background: url("../img/kill-monster-fullscreen_720.png") no-repeat center
+		center/cover;
 }
 
 h2 {
@@ -19,68 +29,85 @@ progress {
 	appearance: none;
 	width: 80%;
 	height: 2rem;
-	color: #ff0062;
-	border: 1px solid #a927f5;
+	color: var(--main-color);
+	border: 1px solid var(--secondary-color);
 }
-
 progress[value]::-webkit-progress-bar,
 progress[value] {
 	background-color: #eee;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
-
 progress[value]::-webkit-progress-value {
-	background-color: #a927f5;
+	background-color: var(--secondary-color);
 	transition: all 0.2s ease-out;
 }
-
 progress[value]::-moz-progress-bar {
-	background-color: #a927f5;
+	background-color: var(--secondary-color);
 	transition: all 0.2s ease-out;
 }
-
 button {
 	font: inherit;
-	background: #ff0062;
-	border: 1px solid #ff0062;
-	color: white;
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
+	color: var(--white);
 	padding: 1rem 2rem;
 	border-radius: 6px;
 	cursor: pointer;
 	margin: 0.5rem;
 }
-
 button:focus {
 	outline: none;
 }
-
 button:hover,
 button:active {
-	background: #a927f5;
-	border-color: #a927f5;
+	background: var(--secondary-color);
+	border-color: var(--secondary-color);
 }
-
 #health-levels,
 #controls {
 	margin: 2rem auto;
-	width: 30rem;
+	width: 45%;
+	max-width: 30rem;
+	min-width: 20rem;
 	text-align: center;
 	border-radius: 10px;
 	padding: 1rem;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-	background: white;
+	background: var(--white);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
 }
 
+@media (max-width: 600px) {
+	body {
+		background: url("../img/kill-monster-2.2_720.png");
+	}
+	#controls {
+		width: 100px;
+		min-width: 0px;
+	}
+	#controls button {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
 #controls {
 	display: flex;
 	flex-direction: column;
 }
-
 #bonus-life {
 	font-weight: bold;
-	color: white;
-	background: #ff0062;
-	border: 1px solid #ff0062;
+	color: var(--white);
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
 	padding: 0.15rem 0.5rem;
 	border-radius: 10px;
 	text-align: center;
